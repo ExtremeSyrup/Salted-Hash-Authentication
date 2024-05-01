@@ -19,3 +19,22 @@ This project implements a salted hash authentication mechanism to securely store
 - **Individualized Hashes:** Each user has a unique salt, ensuring that even users with the same password will have different hash values stored in the database.
 
 - **Resistance to Rainbow Table Attacks:** Rainbow table attacks, which involve precomputed hashes of commonly used passwords, are mitigated because the salt adds a unique element to each password before hashing.
+
+## Prerequisites
+
+- [MySQL](https://www.mysql.com/) or any other compatible database system installed on your machine.
+
+## Getting Started
+1. Clone the Salted-Hash-Authentication repository:
+2. ```git clone https://github.com/ExtremeSyrup/Salted-Hash-Authentication```
+3. you must create a Database, and create a table with name 'users' as described below
+```
+CREATE TABLE your_database_name.users (
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(128) NOT NULL,
+    salt VARCHAR(32) NOT NULL,
+    PRIMARY KEY (username)
+);
+```
+4. Include the user.h header file from the cloned repository in your project to enable salted hash authentication.
+5. Follow the steps according to main.cpp for interfacing the headerfile.
